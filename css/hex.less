@@ -1,0 +1,67 @@
+@hex-size: 28px;
+@hex-border: 2px;
+@hex-color: grey;
+@hex-border-color: black;
+
+
+@root: `Math.sqrt(3)`;
+@height: (@hex-size + @hex-border * 2) / @root;
+
+
+.rotate(@deg) {
+	-webkit-transform: rotate(@deg);
+	   -moz-transform: rotate(@deg);
+	    -ms-transform: rotate(@deg);
+	     -o-transform: rotate(@deg);
+}
+
+.hexrow {
+	clear: both;
+	padding: 0;
+	padding-top: @height / 2;
+
+	&:nth-child(odd) {
+		margin-left: @hex-size / 2 + @hex-border;
+	}
+}
+
+.hexagon {
+	position: relative;
+	float: left;
+
+	&, &:before, &:after {
+		width: @hex-size;
+		height: @height;
+
+		background: @hex-color;
+
+		border-left: @hex-border solid @hex-border-color;
+		border-right: @hex-border solid @hex-border-color;
+	}
+
+	&:before, &:after {
+		content: "";
+		position: absolute;
+		margin-left: -@hex-border;
+		
+		.top-left & {
+			border-left-color: @hex-color;
+		}
+		.bottom-right & {
+			border-right-color: @hex-color;
+		}
+	}
+	&:before {
+		.rotate(60deg);
+	}
+	&:after {
+		.rotate(-60deg);
+	}
+
+	.right & {
+		border-right-color: @hex-color;
+	}
+	.left & {
+		border-left-color: @hex-color;
+	}
+}

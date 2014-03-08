@@ -1,58 +1,53 @@
-.hexagon {
-	width: 22px;
-	height: 12px;
-	position: relative;
-	float: left;
-
-	background: grey;
-	border-left: 5px solid black;
-	border-right: 5px solid black;
-
-}
-.hexagon:before {
-	content: "";
-	width: 22px;
-	height: 12px;
-	position: absolute;
-	margin-left: -5px;
-
-	-webkit-transform: rotate(60deg);
-	   -moz-transform: rotate(60deg);
-	    -ms-transform: rotate(60deg);
-	     -o-transform: rotate(60deg);
-
-	background: grey;
-	border-left: 5px solid black;
-	border-right: 5px solid black;
-}
-.hexagon:after {
-	content: "";
-	width: 22px;
-	height: 12px;
-	position: absolute;
-	margin-left: -5px;
-
-	-webkit-transform: rotate(-60deg);
-	   -moz-transform: rotate(-60deg);
-	    -ms-transform: rotate(-60deg);
-	     -o-transform: rotate(-60deg);
-
-	background: grey;
-	border-left: 5px solid black;
-	border-right: 5px solid black;
-}
-
 .hexrow {
-	clear: both;
-	padding-top: 16px;
+  clear: both;
+  padding: 0;
+  padding-top: 9.23760431px;
 }
 .hexrow:nth-child(odd) {
-	margin-left: 16px;
+  margin-left: 16px;
 }
-
-.top-left .hexagon:before { border-left: 5px solid grey; }
-.top-right .hexagon:after { border-right: 5px solid grey; }
-.right .hexagon { border-right: 5px solid grey; }
-.bottom-right .hexagon:before { border-right: 5px solid grey;}
-.bottom-left .hexagon:after { border-left: 5px solid grey; }
-.left .hexagon { border-left: 5px solid grey; }
+.hexagon {
+  position: relative;
+  float: left;
+}
+.hexagon,
+.hexagon:before,
+.hexagon:after {
+  width: 28px;
+  height: 18.47520861px;
+  background: #808080;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+}
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  margin-left: -2px;
+}
+.top-left .hexagon:before,
+.top-left .hexagon:after {
+  border-left-color: #808080;
+}
+.bottom-right .hexagon:before,
+.bottom-right .hexagon:after {
+  border-right-color: #808080;
+}
+.hexagon:before {
+  -webkit-transform: rotate(60deg);
+  -moz-transform: rotate(60deg);
+  -ms-transform: rotate(60deg);
+  -o-transform: rotate(60deg);
+}
+.hexagon:after {
+  -webkit-transform: rotate(-60deg);
+  -moz-transform: rotate(-60deg);
+  -ms-transform: rotate(-60deg);
+  -o-transform: rotate(-60deg);
+}
+.right .hexagon {
+  border-right-color: #808080;
+}
+.left .hexagon {
+  border-left-color: #808080;
+}
