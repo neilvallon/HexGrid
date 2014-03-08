@@ -40,10 +40,3 @@ function HexGrid(x, y) {
 HexGrid.prototype.find = function(x, y) {
 	return this.hrows[y].nodes[x];
 };
-
-$(function(){
-	$(".hexMaze").each(function() {
-		var g = new HexGrid(25);
-		$(this).html(g.html);
-	});
-});
