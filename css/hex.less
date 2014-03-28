@@ -1,5 +1,6 @@
-@hex-size: 28px;
+@hex-size:28px;
 @hex-border: 2px;
+@border-extention: 6px;
 @hex-color: grey;
 @hex-border-color: black;
 
@@ -18,7 +19,7 @@
 .hexrow {
 	clear: both;
 	padding: 0;
-	padding-top: @height / 2;
+	padding-top: @height / 2 + @border-extention;
 
 	&:nth-child(odd) {
 		margin-left: @hex-size / 2 + @hex-border;
@@ -31,7 +32,7 @@
 
 	&, &:before, &:after {
 		width: @hex-size;
-		height: @height;
+		height: @height - @border-extention;
 
 		background: @hex-color;
 

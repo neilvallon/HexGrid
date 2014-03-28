@@ -1,7 +1,7 @@
 .hexrow {
   clear: both;
   padding: 0;
-  padding-top: 9.23760431px;
+  padding-top: 15.23760431px;
 }
 .hexrow:nth-child(odd) {
   margin-left: 16px;
@@ -14,7 +14,7 @@
 .hexagon:before,
 .hexagon:after {
   width: 28px;
-  height: 18.47520861px;
+  height: 12.47520861px;
   background: #808080;
   border-left: 2px solid #000000;
   border-right: 2px solid #000000;
