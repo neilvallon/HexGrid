@@ -29,14 +29,6 @@
   position: absolute;
   margin-left: -2px;
 }
-.top-left .hexagon:before,
-.top-left .hexagon:after {
-  border-left-color: #808080;
-}
-.bottom-right .hexagon:before,
-.bottom-right .hexagon:after {
-  border-right-color: #808080;
-}
 .hexagon:before {
   -webkit-transform: rotate(60deg);
   -moz-transform: rotate(60deg);
@@ -49,9 +41,13 @@
   -ms-transform: rotate(-60deg);
   -o-transform: rotate(-60deg);
 }
-.right .hexagon {
-  border-right-color: #808080;
-}
-.left .hexagon {
+.left .hexagon,
+.top-left .hexagon:before,
+.bottom-left .hexagon:after {
   border-left-color: #808080;
+}
+.right .hexagon,
+.top-right .hexagon:after,
+.bottom-right .hexagon:before {
+  border-right-color: #808080;
 }

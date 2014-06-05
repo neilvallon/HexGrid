@@ -49,13 +49,6 @@
 		content: "";
 		position: absolute;
 		margin-left: -@hex-border;
-		
-		.top-left & {
-			border-left-color: @hex-color;
-		}
-		.bottom-right & {
-			border-right-color: @hex-color;
-		}
 	}
 	&:before {
 		.rotate(60deg);
@@ -64,10 +57,14 @@
 		.rotate(-60deg);
 	}
 
-	.right & {
-		border-right-color: @hex-color;
-	}
-	.left & {
+	.left &,
+	.top-left &:before,
+	.bottom-left &:after {
 		border-left-color: @hex-color;
+	}
+	.right &,
+	.top-right &:after,
+	.bottom-right &:before {
+		border-right-color: @hex-color;
 	}
 }
