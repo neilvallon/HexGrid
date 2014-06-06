@@ -3,7 +3,7 @@ var genMaze = function(nodeSet) {
 		return;
 	}
 
-	var current = nodeSet.shift();
+	var current = nodeSet.pop();
 	var neighbors = current.neighbors();
 
 	for(n in neighbors) {
