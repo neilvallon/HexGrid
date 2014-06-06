@@ -72,6 +72,18 @@ HexNode.prototype.openWall = function(side, row) {
 	return true;
 };
 
+HexNode.prototype.neighbors = function() {
+	var ret = {};
+	for(k in this.sides) {
+		var s = this.sides[k];
+		var n = this.grid.find(s.x, s.y);
+		if(n !== undefined) {
+			ret[k] = n;
+		}
+	}
+	return ret;
+}
+
 function HexRow(y, n, grid) {
 	this.grid = grid;
 	this.even = y % 2 === 0;
