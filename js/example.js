@@ -1,9 +1,9 @@
-var genMaze = function(nodeSet) {
+var genMaze = function(nodeSet, method, animate) {
 	if(nodeSet.length == 0) {
 		return;
 	}
 
-	var current = nodeSet.pop();
+	var current = (method === "DFS")? nodeSet.pop() : nodeSet.shift();
 	var neighbors = current.neighbors();
 
 	for(n in neighbors) {
@@ -18,14 +18,39 @@ var genMaze = function(nodeSet) {
 		split[1]? current.openWall(split[1], split[0]) : current.openWall(split[0])
 	}
 
-	setTimeout(function(){ genMaze(nodeSet); }, 10);
+	if(animate) {
+		setTimeout(function(){ genMaze(nodeSet, method, animate); }, 10);
+	} else {
+		genMaze(nodeSet, method, animate);
+	}
 };
 
 $(function(){
-	$(".hexMaze").each(function() {
-		var g = new HexGrid(25);
-		$(this).html(g.html);
-		
-		genMaze([g.find(12, 12)]);
+	var method, animate;
+	animate = false;
+
+	$("#DFS").click(function() {
+		method = 'DFS';
+		$("#BFS").removeClass("active");
+		$("#DFS").addClass("active");
+	}).trigger("click");
+	$("#BFS").click(function() {
+		method = 'BFS';
+		$("#DFS").removeClass("active");
+		$("#BFS").addClass("active");
 	});
+
+	$("#Ani").click(function() {
+		animate ^= true;
+		animate? $("#Ani").addClass("active"):$("#Ani").removeClass("active");
+	});
+
+	$("#Gen").click(function() {
+		$(".hexMaze").each(function() {
+			var g = new HexGrid(25);
+			$(this).html(g.html);
+			genMaze([g.find(12, 12)], method, animate);
+		});
+	}).trigger("click");
+	
 });
