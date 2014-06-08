@@ -23,12 +23,11 @@ HexNode.prototype.open = function(side, row) {
 	var c = row? row + "-" : "";
 	c += side;
 
-	if(this.sides[c] === undefined) {
-		return false;
+	if(this.sides[c] !== undefined) {
+		this.node.addClass(c);
+		return true;
 	}
-
-	this.node.addClass(c);
-	return true;
+	return false;
 };
 
 HexNode.prototype.openAdjacent = function(side, row) {
@@ -109,13 +108,5 @@ function HexGrid(x, y) {
 };
 
 HexGrid.prototype.find = function(x, y) {
-	var r = this.hrows[y];
-	if(r === undefined) {
-		return undefined
-	}
-
-	var n = r.nodes[x];
-	if(r !== undefined) {
-		return n
-	}
+	return this.hrows[y]? this.hrows[y].nodes[x] : undefined;
 };
