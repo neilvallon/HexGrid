@@ -3,15 +3,15 @@
  * Licensed under MIT (http://opensource.org/licenses/MIT)
  */
 
-@hex-size:28px;
-@hex-border: 2px;
-@border-extention: 6px;
+@hex-size: 32px;
+@hex-border: 3px;
+@border-extention: 5px;
 @hex-color: grey;
 @hex-border-color: black;
 
 
 @root: `Math.sqrt(3)`;
-@height: (@hex-size + @hex-border * 2) / @root;
+@height: @hex-size / @root;
 
 
 .rotate(@deg) {
@@ -21,13 +21,19 @@
 	     -o-transform: rotate(@deg);
 }
 
+.box-model() {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
 .hexrow {
 	clear: both;
 	padding: 0;
 	padding-top: @height / 2 + @border-extention;
 
 	&:nth-child(odd) {
-		margin-left: @hex-size / 2 + @hex-border;
+		margin-left: @hex-size / 2;
 	}
 }
 
@@ -36,6 +42,7 @@
 	float: left;
 
 	&, &:before, &:after {
+		.box-model();
 		width: @hex-size;
 		height: @height - @border-extention;
 

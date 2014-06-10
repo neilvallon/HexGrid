@@ -5,7 +5,7 @@
 .hexrow {
   clear: both;
   padding: 0;
-  padding-top: 15.23760431px;
+  padding-top: 14.23760431px;
 }
 .hexrow:nth-child(odd) {
   margin-left: 16px;
@@ -17,17 +17,20 @@
 .hexagon,
 .hexagon:before,
 .hexagon:after {
-  width: 28px;
-  height: 12.47520861px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 32px;
+  height: 13.47520861px;
   background: #808080;
-  border-left: 2px solid #000000;
-  border-right: 2px solid #000000;
+  border-left: 3px solid #000000;
+  border-right: 3px solid #000000;
 }
 .hexagon:before,
 .hexagon:after {
   content: "";
   position: absolute;
-  margin-left: -2px;
+  margin-left: -3px;
 }
 .hexagon:before {
   -webkit-transform: rotate(60deg);
